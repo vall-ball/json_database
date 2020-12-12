@@ -1,0 +1,14 @@
+server/Menu.java
+ server.Menu
+client/Client.java
+ client.Client
+server/Database.java
+ server.Database
+server/CommandParser.java
+ server.CommandParser
+client/Main.java
+ client.Main
+server/Main.java
+ server.Main
+server/Server.java
+ server.Server
