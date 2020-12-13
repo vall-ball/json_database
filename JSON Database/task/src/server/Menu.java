@@ -28,7 +28,7 @@ public class Menu {
 
     public void get(String[] command) {
         int number = Integer.parseInt(command[1]);
-        if (number > 100 || "".equals(database.get(number)) || database.get(number) == null) {
+        if (number > 1000 || "".equals(database.get(number)) || database.get(number) == null) {
             System.out.println("ERROR");
         } else {
             System.out.println(database.get(number));
@@ -37,7 +37,7 @@ public class Menu {
 
     public void set(String[] command) {
         int number = Integer.parseInt(command[1]);
-        if (number > 100) {
+        if (number > 1000) {
             System.out.println("ERROR");
         } else {
             String value = CommandParser.text(command);
@@ -48,7 +48,7 @@ public class Menu {
 
     public void delete(String[] command) {
         int number = Integer.parseInt(command[1]);
-        if (number > 100) {
+        if (number > 1000) {
             System.out.println("ERROR");
         } else {
             database.set(number, "");

@@ -1,14 +1,16 @@
-server/Menu.java
- server.Menu
-client/Client.java
- client.Client
-server/Database.java
- server.Database
 server/CommandParser.java
  server.CommandParser
-client/Main.java
- client.Main
-server/Main.java
- server.Main
+server/Database.java
+ server.Database
 server/Server.java
  server.Server
+server/Menu.java
+ server.Menu
+server/Main.java
+ server.Main
+client/Client.java
+ client.Client
+client/ArgsParser.java
+ client.ArgsParser
+client/Main.java
+ client.Main

@@ -1,15 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-12T10:46:43" hostname="NEC" time="0.584">
+<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-13T12:20:44" hostname="NEC" time="0.283">
   <properties/>
-  <testcase name="start" classname="JsonDatabaseTest" time="0.584"/>
+  <testcase name="start" classname="JsonDatabaseTest" time="0.283"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Server started!
 Client started!
-Sent: Give me a record # 12
-Received: Give me a record # 12
-Sent: A record #12 was sent!
-Received: A record #12 was sent!
+Sent: exit
+?[1;31m
+Start test 2?[0m
+Server started!
+Client started!
+Sent: get 1
+Received: ERROR
+Client started!
+Sent: set 1 Hello world! 
+Received: OK
+Client started!
+Sent: set 1 HelloWorld! 
+Received: OK
+Client started!
+Sent: get 1
+Received: HelloWorld! 
+Client started!
+Sent: delete 1
+Received: OK
+Client started!
+Sent: delete 1
+Received: OK
+Client started!
+Sent: get 1
+Received: ERROR
+Client started!
+Sent: set 55 Some text here 
+Received: OK
+Client started!
+Sent: get 55
+Received: Some text here 
+Client started!
+Sent: get 56
+Received: ERROR
+Client started!
+Sent: delete 55
+Received: OK
+Client started!
+Sent: delete 56
+Received: OK
+Client started!
+Sent: delete 100
+Received: OK
+Client started!
+Sent: delete 1001
+Received: ERROR
+Client started!
+Sent: exit
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:345)
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:594)
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:569)
+	at client.Client.work(Client.java:28)
+	at client.Main.main(Main.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.hyperskill.hstest.testing.TestedProgram.invokeMain(TestedProgram.java:152)
+	at org.hyperskill.hstest.testing.TestedProgram.lambda$start$0(TestedProgram.java:201)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:345)
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:594)
+	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:569)
+	at client.Client.work(Client.java:28)
+	at client.Main.main(Main.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.hyperskill.hstest.testing.TestedProgram.invokeMain(TestedProgram.java:152)
+	at org.hyperskill.hstest.testing.TestedProgram.lambda$start$0(TestedProgram.java:201)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+]]></system-err>
 </testsuite>

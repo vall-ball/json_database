@@ -1,7 +1,7 @@
 package server;
 
 public class Database {
-    String[] array = new String[100];
+    String[] array = new String[1000];
 
     Database() {
         for (String s : array) {
