@@ -941,6 +941,27 @@ files:
         String value;
     }
   learner_created: true
+- name: src/server/FileHandler.java
+  visible: true
+  learner_created: true
+- name: src/client/data/db.json
+  visible: true
+  learner_created: true
+- name: src/client/data/testDelete.json
+  visible: true
+  learner_created: true
+- name: src/client/data/testSet.json
+  visible: true
+  learner_created: true
+- name: src/client/data/testGet.json
+  visible: true
+  learner_created: true
+- name: src/server/Worker.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/65/stages/352/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 14 Dec 2020 12:27:36 UTC
 record: -1

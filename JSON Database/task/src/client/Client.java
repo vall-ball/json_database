@@ -16,7 +16,7 @@ public class Client {
         this.command = command;
     }
 
-    public void work() throws UnknownHostException {
+    public void work() throws UnknownHostException, InterruptedException {
         System.out.println("Client started!");
         try (
                 Socket socket = new Socket(InetAddress.getByName(address), port);
@@ -25,6 +25,7 @@ public class Client {
         ) {
             output.writeUTF(command); // sending message to the server
             System.out.println("Sent: " + command);
+            Thread.sleep(200);
             String receivedMsg = input.readUTF(); // response message
             System.out.println("Received: " + receivedMsg);
         } catch (IOException e) {

@@ -1,93 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-13T12:20:44" hostname="NEC" time="0.283">
+<testsuite name="JsonDatabaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-14T12:27:32" hostname="NEC" time="4.406">
   <properties/>
-  <testcase name="start" classname="JsonDatabaseTest" time="0.283"/>
+  <testcase name="start" classname="JsonDatabaseTest" time="4.406"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
-Server started!
-Client started!
-Sent: exit
 ?[1;31m
 Start test 2?[0m
 Server started!
 Client started!
-Sent: get 1
-Received: ERROR
+Sent: {"type":"exit"}
+RUN!!! 
+command.type = exit
+flag = false
+Received: {"response":"OK"}
+?[1;31m
+Start test 3?[0m
+Server started!
 Client started!
-Sent: set 1 Hello world! 
-Received: OK
+Sent: {"type":"get","key":"1"}
+RUN!!! 
+command.type = get
+flag = true
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: set 1 HelloWorld! 
-Received: OK
+Sent: {"type":"set","value":"Hello world!","key":"1"}
+RUN!!! 
+command.type = set
+flag = true
+Received: {"response":"OK"}
 Client started!
-Sent: get 1
-Received: HelloWorld! 
+Sent: {"type":"set","value":"HelloWorld!","key":"1"}
+RUN!!! 
+command.type = set
+flag = true
+Received: {"response":"OK"}
 Client started!
-Sent: delete 1
-Received: OK
+Sent: {"type":"get","key":"1"}
+RUN!!! 
+command.type = get
+flag = true
+Received: {"response":"OK","value":"HelloWorld!"}
 Client started!
-Sent: delete 1
-Received: OK
+Sent: {"type":"delete","key":"1"}
+RUN!!! 
+command.type = delete
+flag = true
+Received: {"response":"OK"}
 Client started!
-Sent: get 1
-Received: ERROR
+RUN!!! 
+command.type = delete
+Sent: {"type":"delete","key":"1"}
+flag = true
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: set 55 Some text here 
-Received: OK
+RUN!!! 
+command.type = get
+Sent: {"type":"get","key":"1"}
+flag = true
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: get 55
-Received: Some text here 
+RUN!!! 
+Sent: {"type":"set","value":"Some text here","key":"text"}
+command.type = set
+flag = true
+Received: {"response":"OK"}
 Client started!
-Sent: get 56
-Received: ERROR
+RUN!!! 
+command.type = get
+Sent: {"type":"get","key":"text"}
+flag = true
+Received: {"response":"OK","value":"Some text here"}
 Client started!
-Sent: delete 55
-Received: OK
+RUN!!! 
+command.type = get
+Sent: {"type":"get","key":"56"}
+flag = true
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: delete 56
-Received: OK
+RUN!!! 
+command.type = delete
+Sent: {"type":"delete","key":"56"}
+flag = true
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: delete 100
-Received: OK
+RUN!!! 
+command.type = delete
+Sent: {"type":"delete","key":"100"}
+flag = true
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: delete 1001
-Received: ERROR
+RUN!!! 
+command.type = delete
+Sent: {"type":"delete","key":"That key doesn\u0027t exist"}
+flag = true
+Received: {"response":"ERROR","reason":"No such key"}
 Client started!
-Sent: exit
+RUN!!! 
+command.type = set
+Sent: {"type":"set","key":"name","value":"Kate"}
+flag = true
+Received: {"response":"OK"}
+Client started!
+RUN!!! 
+command.type = get
+Sent: {"type":"get","key":"name"}
+flag = true
+Received: {"response":"OK","value":"Kate"}
+Client started!
+Sent: {"type":"delete","key":"name"}
+RUN!!! 
+command.type = delete
+flag = true
+Received: {"response":"OK"}
+Client started!
+RUN!!! 
+command.type = get
+Sent: {"type":"get","key":"name"}
+flag = true
+Received: {"response":"ERROR","reason":"No such key"}
+Client started!
+RUN!!! 
+command.type = exit
+Sent: {"type":"exit"}
+flag = false
+Received: {"response":"OK"}
 ]]></system-out>
-  <system-err><![CDATA[java.io.EOFException
-	at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:345)
-	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:594)
-	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:569)
-	at client.Client.work(Client.java:28)
-	at client.Main.main(Main.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.hyperskill.hstest.testing.TestedProgram.invokeMain(TestedProgram.java:152)
-	at org.hyperskill.hstest.testing.TestedProgram.lambda$start$0(TestedProgram.java:201)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-java.io.EOFException
-	at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:345)
-	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:594)
-	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:569)
-	at client.Client.work(Client.java:28)
-	at client.Main.main(Main.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.hyperskill.hstest.testing.TestedProgram.invokeMain(TestedProgram.java:152)
-	at org.hyperskill.hstest.testing.TestedProgram.lambda$start$0(TestedProgram.java:201)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>

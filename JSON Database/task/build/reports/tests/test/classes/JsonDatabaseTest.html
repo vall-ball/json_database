@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.283s</div>
+<div class="counter">4.406s</div>
 <p>duration</p>
 </div>
 </td>
@@ -66,9 +66,6 @@
 <li>
 <a href="#tab1">Standard output</a>
 </li>
-<li>
-<a href="#tab2">Standard error</a>
-</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -82,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">start</td>
-<td class="success">0.283s</td>
+<td class="success">4.406s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,96 +89,126 @@
 <span class="code">
 <pre>?[1;31m
 Start test 1?[0m
-Server started!
-Client started!
-Sent: exit
 ?[1;31m
 Start test 2?[0m
 Server started!
 Client started!
-Sent: get 1
-Received: ERROR
+Sent: {&quot;type&quot;:&quot;exit&quot;}
+RUN!!! 
+command.type = exit
+flag = false
+Received: {&quot;response&quot;:&quot;OK&quot;}
+?[1;31m
+Start test 3?[0m
+Server started!
 Client started!
-Sent: set 1 Hello world! 
-Received: OK
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+RUN!!! 
+command.type = get
+flag = true
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: set 1 HelloWorld! 
-Received: OK
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;value&quot;:&quot;Hello world!&quot;,&quot;key&quot;:&quot;1&quot;}
+RUN!!! 
+command.type = set
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;}
 Client started!
-Sent: get 1
-Received: HelloWorld! 
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;,&quot;key&quot;:&quot;1&quot;}
+RUN!!! 
+command.type = set
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;}
 Client started!
-Sent: delete 1
-Received: OK
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+RUN!!! 
+command.type = get
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;HelloWorld!&quot;}
 Client started!
-Sent: delete 1
-Received: OK
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
+RUN!!! 
+command.type = delete
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;}
 Client started!
-Sent: get 1
-Received: ERROR
+RUN!!! 
+command.type = delete
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;1&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: set 55 Some text here 
-Received: OK
+RUN!!! 
+command.type = get
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;1&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: get 55
-Received: Some text here 
+RUN!!! 
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;value&quot;:&quot;Some text here&quot;,&quot;key&quot;:&quot;text&quot;}
+command.type = set
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;}
 Client started!
-Sent: get 56
-Received: ERROR
+RUN!!! 
+command.type = get
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;text&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;Some text here&quot;}
 Client started!
-Sent: delete 55
-Received: OK
+RUN!!! 
+command.type = get
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;56&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: delete 56
-Received: OK
+RUN!!! 
+command.type = delete
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;56&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: delete 100
-Received: OK
+RUN!!! 
+command.type = delete
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;100&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: delete 1001
-Received: ERROR
+RUN!!! 
+command.type = delete
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;That key doesn\u0027t exist&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
 Client started!
-Sent: exit
-</pre>
-</span>
-</div>
-<div id="tab2" class="tab">
-<h2>Standard error</h2>
-<span class="code">
-<pre>java.io.EOFException
-	at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:345)
-	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:594)
-	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:569)
-	at client.Client.work(Client.java:28)
-	at client.Main.main(Main.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.hyperskill.hstest.testing.TestedProgram.invokeMain(TestedProgram.java:152)
-	at org.hyperskill.hstest.testing.TestedProgram.lambda$start$0(TestedProgram.java:201)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-java.io.EOFException
-	at java.base/java.io.DataInputStream.readUnsignedShort(DataInputStream.java:345)
-	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:594)
-	at java.base/java.io.DataInputStream.readUTF(DataInputStream.java:569)
-	at client.Client.work(Client.java:28)
-	at client.Main.main(Main.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.hyperskill.hstest.testing.TestedProgram.invokeMain(TestedProgram.java:152)
-	at org.hyperskill.hstest.testing.TestedProgram.lambda$start$0(TestedProgram.java:201)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at java.base/java.lang.Thread.run(Thread.java:834)
+RUN!!! 
+command.type = set
+Sent: {&quot;type&quot;:&quot;set&quot;,&quot;key&quot;:&quot;name&quot;,&quot;value&quot;:&quot;Kate&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;}
+Client started!
+RUN!!! 
+command.type = get
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;name&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;,&quot;value&quot;:&quot;Kate&quot;}
+Client started!
+Sent: {&quot;type&quot;:&quot;delete&quot;,&quot;key&quot;:&quot;name&quot;}
+RUN!!! 
+command.type = delete
+flag = true
+Received: {&quot;response&quot;:&quot;OK&quot;}
+Client started!
+RUN!!! 
+command.type = get
+Sent: {&quot;type&quot;:&quot;get&quot;,&quot;key&quot;:&quot;name&quot;}
+flag = true
+Received: {&quot;response&quot;:&quot;ERROR&quot;,&quot;reason&quot;:&quot;No such key&quot;}
+Client started!
+RUN!!! 
+command.type = exit
+Sent: {&quot;type&quot;:&quot;exit&quot;}
+flag = false
+Received: {&quot;response&quot;:&quot;OK&quot;}
 </pre>
 </span>
 </div>
@@ -193,7 +220,7 @@ java.io.EOFException
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.6.1</a> at 13 дек. 2020 г., 19:20:44</p>
+<a href="http://www.gradle.org">Gradle 6.6.1</a> at 14 дек. 2020 г., 19:27:36</p>
 </div>
 </div>
 </body>

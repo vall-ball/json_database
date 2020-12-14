@@ -1,10 +1,10 @@
 package server;
 
-import java.net.UnknownHostException;
+import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) throws IOException {
         Server server = new Server();
         server.work();
     }
